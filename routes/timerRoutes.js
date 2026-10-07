@@ -49,6 +49,11 @@ const verifyUser=(req,res,next)=>{
     var username= auth[0]
     var password= auth[1]
 
+    console.log("AUTH USER:", JSON.stringify(username));
+    console.log("AUTH PASS:", JSON.stringify(password));
+    console.log("ENV USER:", JSON.stringify(process.env.username));
+    console.log("ENV PASS:", JSON.stringify(process.env.password));
+
     if(username===process.env.username && password===process.env.password)
     next();
     else{

@@ -64,8 +64,8 @@ if (count===0){
 
         {
             "price": 0,
-            "code": "FB",
-            "name": "Facebook, Inc.",
+            "code": "META",
+            "name": "Meta Platforms Inc.",
             "diff": 0,
             "diffPerc":0,
             "latestUpdate":0
@@ -200,8 +200,8 @@ if (count===0){
         },
         {
             "price": 0,
-            "code": "EA",
-            "name": "Electronic Arts Inc.",
+            "code": "JPM",
+            "name": "JPMorgan Chase & Co",
             "diff": 0,
             "diffPerc":0,
             "latestUpdate":0

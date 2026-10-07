@@ -24,7 +24,7 @@
             </div>
         </div>
         <br><br>
-        <p class="text-center">Page last updated on: <strong id="last-updated"><%= player.updatedAt %></strong></p>
+        <p class="text-center">Page last updated on: <strong id="last-updated"><%= moment(pageUpdatedAt).format('MMM Do,h:mm:ss a') %></strong></p>
         <div class="stock-cards">
             <% stocks.forEach((stock) => { %> 
                 <% let diff = (stock.diff * 1)/100; %>

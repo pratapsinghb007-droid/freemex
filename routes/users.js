@@ -8,7 +8,7 @@ userRouter.get('/google',passport.authenticate('google',{scope:['profile','email
 
 userRouter.get('/facebook',passport.authenticate('facebook'))
 
-userRouter.get('/github', passport.authenticate('github', {scope:['user:email','user:profile']}))
+userRouter.get('/github', passport.authenticate('github', {scope:['user:email','read:user']}))
 
 userRouter.route('/logout')
 .get((req,res,next)=>{

@@ -21,7 +21,6 @@ const updateStock= require('./utilities/utilities')
 let clients=[]
 require('dotenv').config();
 
-const port = process.env.PORT || 8000;
 
 async function connectDB() {
     try {
@@ -79,13 +78,16 @@ const eventsHandler=(req,res,next)=>{
     });
 }
 
-module.exports.sendEventsToAll = function sendEventsToAll(updateStocks){
-    console.log("updated:",updateStocks)
-    clients.forEach(c=>{
-        console.log("updating frontend client ",c.id);
-        return c.res.write(`data: ${JSON.stringify(updateStocks)}\n\n`)
-    })
+function sendEventsToAll(updateStocks) {
+    console.log("updated:", updateStocks);
+
+    clients.forEach(c => {
+        console.log("updating frontend client", c.id);
+        c.res.write(`data: ${JSON.stringify(updateStocks)}\n\n`);
+    });
 }
+
+app.sendEventsToAll = sendEventsToAll;
 
 
 app.use('/api/stocks',stockRouter );
@@ -105,6 +107,4 @@ var Player=require("./models/users")
 
 setInterval(()=>updateStock.update_player_assets(Player,playerStock),10000);
 
-app.listen(port, ()=>{
-    console.log(`server running at port ${process.env.PORT}`)
-})
+module.exports=app;
